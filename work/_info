@@ -1,0 +1,316 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/intelFPGA/20.1
+valu
+Z0 !s110 1744919456
+!i10b 1
+!s100 eodUC<clVE=ZNaTZ<3hca0
+Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
+ISjVNNNmTkz7GAgGzlJ0RX2
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+Z3 dD:/2024.2/KTMT nang cao
+w1744918604
+8D:\2024.2\KTMT nang cao\ALU.v
+FD:\2024.2\KTMT nang cao\ALU.v
+!i122 4
+L0 6 36
+Z4 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z5 !s108 1744919456.000000
+!s107 D:\2024.2\KTMT nang cao\ALU.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:\2024.2\KTMT nang cao\ALU.v|
+!i113 1
+Z6 o-work work
+Z7 tCvgOpt 0
+valudec
+R0
+!i10b 1
+!s100 XIWk]VK:<]QjD7I90l1z50
+R1
+Ia^ANaN1mDQE3DLjZP_Dee2
+R2
+R3
+w1744918695
+8D:\2024.2\KTMT nang cao\ALU_Decoder.v
+FD:\2024.2\KTMT nang cao\ALU_Decoder.v
+!i122 5
+L0 7 42
+R4
+r1
+!s85 0
+31
+R5
+!s107 D:\2024.2\KTMT nang cao\ALU_Decoder.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:\2024.2\KTMT nang cao\ALU_Decoder.v|
+!i113 1
+R6
+R7
+vdmem
+!s110 1744919481
+!i10b 1
+!s100 J_@?k4Z2C]ad3Gb2?P[R42
+R1
+IP7lhVjlcRJ1Y37AZaFdRc1
+R2
+R3
+w1744918878
+8D:\2024.2\KTMT nang cao\DataMem.v
+FD:\2024.2\KTMT nang cao\DataMem.v
+!i122 7
+L0 3 20
+R4
+r1
+!s85 0
+31
+!s108 1744919481.000000
+!s107 D:\2024.2\KTMT nang cao\DataMem.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:\2024.2\KTMT nang cao\DataMem.v|
+!i113 1
+R6
+R7
+vEX_MEM
+!s110 1744920393
+!i10b 1
+!s100 PXgA2O_9UJ[E5V?jnamcW1
+R1
+Ii`fl]ZRgnQ?FeJnOfF<[@2
+R2
+R3
+w1744920388
+8D:\2024.2\KTMT nang cao\IEx_IMem.v
+FD:\2024.2\KTMT nang cao\IEx_IMem.v
+!i122 11
+Z8 L0 5 29
+R4
+r1
+!s85 0
+31
+!s108 1744920392.000000
+!s107 D:\2024.2\KTMT nang cao\IEx_IMem.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:\2024.2\KTMT nang cao\IEx_IMem.v|
+!i113 1
+R6
+R7
+n@e@x_@m@e@m
+vforwardA
+!s110 1744921050
+!i10b 1
+!s100 V<@bD6c=l;Z1LgPd4X0?M3
+R1
+IDNDD9md3:NaEoJiUJDcCN0
+R2
+R3
+w1744921032
+8D:\2024.2\KTMT nang cao\ForwardMuxA.v
+FD:\2024.2\KTMT nang cao\ForwardMuxA.v
+!i122 16
+Z9 L0 1 13
+R4
+r1
+!s85 0
+31
+!s108 1744921049.000000
+!s107 D:\2024.2\KTMT nang cao\ForwardMuxA.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:\2024.2\KTMT nang cao\ForwardMuxA.v|
+!i113 1
+R6
+R7
+nforward@a
+vforwardB
+!s110 1744921082
+!i10b 1
+!s100 4?j3ZBghDDSh:5IR`gbe22
+R1
+Ifi20I00C]mGFgd^EGSn8Z3
+R2
+R3
+w1744921071
+8D:\2024.2\KTMT nang cao\ForwardMuxB.v
+FD:\2024.2\KTMT nang cao\ForwardMuxB.v
+!i122 17
+R9
+R4
+r1
+!s85 0
+31
+!s108 1744921082.000000
+!s107 D:\2024.2\KTMT nang cao\ForwardMuxB.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:\2024.2\KTMT nang cao\ForwardMuxB.v|
+!i113 1
+R6
+R7
+nforward@b
+vID_EX
+!s110 1744920265
+!i10b 1
+!s100 9z4Q>jX`<n8T`DN^YRRh_1
+R1
+I2@8fRJ0DU?9JG>oGi2K7l2
+R2
+R3
+w1744920259
+8D:\2024.2\KTMT nang cao\ID_IEx.v
+FD:\2024.2\KTMT nang cao\ID_IEx.v
+!i122 9
+L0 5 44
+R4
+r1
+!s85 0
+31
+!s108 1744920265.000000
+!s107 D:\2024.2\KTMT nang cao\ID_IEx.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:\2024.2\KTMT nang cao\ID_IEx.v|
+!i113 1
+R6
+R7
+n@i@d_@e@x
+vIF_ID
+!s110 1744920354
+!i10b 1
+!s100 35Od1;`ScJmN1b5DmWaci3
+R1
+I^6RP]ozR9LjkPcYDfhJ8j2
+R2
+R3
+w1744920351
+8D:\2024.2\KTMT nang cao\IF_ID.v
+FD:\2024.2\KTMT nang cao\IF_ID.v
+!i122 10
+L0 5 32
+R4
+r1
+!s85 0
+31
+!s108 1744920354.000000
+!s107 D:\2024.2\KTMT nang cao\IF_ID.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:\2024.2\KTMT nang cao\IF_ID.v|
+!i113 1
+R6
+R7
+n@i@f_@i@d
+vimem
+!s110 1744920194
+!i10b 1
+!s100 6Qj1GTZ@nU00m3znA=Gh;2
+R1
+I=fOieV:>LRd:Z;fmN2hUz2
+R2
+R3
+w1744920189
+8D:\2024.2\KTMT nang cao\InstructionMem.v
+FD:\2024.2\KTMT nang cao\InstructionMem.v
+!i122 8
+L0 6 93
+R4
+r1
+!s85 0
+31
+!s108 1744920194.000000
+!s107 D:\2024.2\KTMT nang cao\InstructionMem.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:\2024.2\KTMT nang cao\InstructionMem.v|
+!i113 1
+R6
+R7
+vMEM_WB
+!s110 1744920540
+!i10b 1
+!s100 ^J6nQCEM==W3U45f0ZW9H1
+R1
+I2oTMO:<aX?;z^hL<OUdUb1
+R2
+R3
+w1744920475
+8D:\2024.2\KTMT nang cao\IMem_IW.v
+FD:\2024.2\KTMT nang cao\IMem_IW.v
+!i122 12
+R8
+R4
+r1
+!s85 0
+31
+!s108 1744920540.000000
+!s107 D:\2024.2\KTMT nang cao\IMem_IW.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:\2024.2\KTMT nang cao\IMem_IW.v|
+!i113 1
+R6
+R7
+n@m@e@m_@w@b
+vpc_mux
+!s110 1744920655
+!i10b 1
+!s100 4?`<MZ7;aoD3zQL^L3Lj[3
+R1
+I9:g^>k<m2;AEZ_THzD:We0
+R2
+R3
+w1744920600
+8D:\2024.2\KTMT nang cao\PC_mux.v
+FD:\2024.2\KTMT nang cao\PC_mux.v
+!i122 14
+L0 1 10
+R4
+r1
+!s85 0
+31
+!s108 1744920655.000000
+!s107 D:\2024.2\KTMT nang cao\PC_mux.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:\2024.2\KTMT nang cao\PC_mux.v|
+!i113 1
+R6
+R7
+vregfile
+!s110 1744920947
+!i10b 1
+!s100 Oz1_6B3hI>o;UMjo_^B911
+R1
+IW>dO5g;?IoISnVG?9gQCS0
+R2
+R3
+w1744920942
+8D:\2024.2\KTMT nang cao\Register_file.v
+FD:\2024.2\KTMT nang cao\Register_file.v
+!i122 15
+L0 1 21
+R4
+r1
+!s85 0
+31
+!s108 1744920947.000000
+!s107 D:\2024.2\KTMT nang cao\Register_file.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:\2024.2\KTMT nang cao\Register_file.v|
+!i113 1
+R6
+R7
+vresult_mux
+!s110 1744920590
+!i10b 1
+!s100 SN;nVX4n5hNVJ?bHhX0G73
+R1
+IW6IizeVmhnO7B=;UU4>hm0
+R2
+R3
+w1744920554
+8D:\2024.2\KTMT nang cao\Result_mux.v
+FD:\2024.2\KTMT nang cao\Result_mux.v
+!i122 13
+R9
+R4
+r1
+!s85 0
+31
+!s108 1744920590.000000
+!s107 D:\2024.2\KTMT nang cao\Result_mux.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:\2024.2\KTMT nang cao\Result_mux.v|
+!i113 1
+R6
+R7
