@@ -1,1 +1,61 @@
-# Load canceled
+# Compile of ALU.v was successful.
+# Compile of ALU_decoder.v was successful with warnings.
+# Compile of ALU_Mux.v was successful.
+# Compile of Control_Unit.v was successful.
+# Compile of Core_Datapath.v was successful.
+# Compile of Data_Memory.v was successful with warnings.
+# Compile of Extend.v was successful.
+# Compile of Instruction_Memory.v was successful.
+# Compile of Main_Decoder.v was successful.
+# Compile of PC.v was successful.
+# Compile of PC_Mux.v was successful.
+# Compile of PC_Plus_4.v was successful.
+# Compile of PC_Target.v was successful.
+# Compile of Register_File.v was successful.
+# Compile of Result_Mux.v was successful.
+# Compile of Single_Cycle_Core.v was successful.
+# Compile of Single_Cycle_Top.v was successful.
+# 17 compiles, 0 failed with no errors.
+vsim -gui work.ALU
+# vsim -gui work.ALU 
+# Start time: 07:33:46 on Apr 18,2025
+# Loading work.ALU
+add wave -position insertpoint sim:/ALU/*
+force -freeze sim:/ALU/A 0 0
+force -freeze sim:/ALU/B 0 0
+force -freeze sim:/ALU/ALUControl 0 0
+force -freeze sim:/ALU/ALUControl 1 0, 0 {50 ps} -r 100
+force -freeze sim:/ALU/B 1 0, 0 {50 ps} -r 100
+force -freeze sim:/ALU/A 1 0, 0 {50 ps} -r 100
+run
+run
+run
+run
+run
+run
+run
+force -freeze sim:/ALU/Zero 1 0, 0 {50 ps} -r 100
+run
+run
+run
+run
+run
+run
+run
+force -freeze sim:/ALU/V 1 0, 0 {50 ps} -r 100
+run
+run
+run
+run
+force -freeze sim:/ALU/slt 1 0, 0 {50 ps} -r 100
+force -freeze sim:/ALU/sltu 1 0, 0 {50 ps} -r 100
+run
+run
+run
+run
+run
+run
+run
+quit -sim
+# End time: 07:39:05 on Apr 18,2025, Elapsed time: 0:05:19
+# Errors: 0, Warnings: 7

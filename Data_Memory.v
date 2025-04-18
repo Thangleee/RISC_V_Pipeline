@@ -20,22 +20,36 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-module Register_File(
-		     input wire 	clk, WE3,
-		     input wire [4:0] 	RA1,RA2,WA3,
-		     input wire [31:0] 	WD3,
-		     output wire [31:0] RD1,RD2
-		     );
 
-   reg [31:0] 				REG_MEM_BLOCK[31:0];
+module Data_Memory(
+		   input wire 	      clk, WE,
+		   input wire [31:0]  A, WD,
+		   output wire [31:0] RD
+		   );
 
-   always@(posedge clk)
-     begin
-	if(WE3)
-	  REG_MEM_BLOCK[WA3] <= WD3;
-     end
+   reg [31:0] 			      RAM[63:0];
 
-   assign RD1 = (RA1 != 0) ? REG_MEM_BLOCK[RA1] : 0;
-   assign RD2 = (RA2 != 0) ? REG_MEM_BLOCK[RA2] : 0;
+   assign RD = RAM[A[31:2]]; // word aligned
+
+//only for testing, wont synthesize
+//addi s0, zero, 0
+//lw s0, 0(s0)
+//lh s1, 0(s0)
+//lb s2, 0(s0)
+//sw s0, 63(s0)
+
+initial begin
+   RAM[32'h00_00_00_00]  = 32'hFACEFACE;
+   RAM[1]  = 32'h00000002; 
+   RAM[2]  = 32'h00000003; 
+   
+   RAM[63] = 32'h000000063;  // Should be replaced by FACE
+end
+
+
+
+   always @(posedge clk)
+     if (WE)
+       RAM[A[31:2]] <= WD;
 
 endmodule

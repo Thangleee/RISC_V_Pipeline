@@ -20,22 +20,42 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-module Register_File(
-		     input wire 	clk, WE3,
-		     input wire [4:0] 	RA1,RA2,WA3,
-		     input wire [31:0] 	WD3,
-		     output wire [31:0] RD1,RD2
-		     );
+module Control_Unit(
+		    input wire [6:0]  op,
+		    input wire [2:0]  funct3,
+		    input wire	      funct7b5, Zero, // function 7 is the 5th bit
 
-   reg [31:0] 				REG_MEM_BLOCK[31:0];
+		    output wire [1:0] ResultSrc,
+		    output wire	      MemWrite, PCSrc, ALUSrc, RegWrite,Jump,
+		    output wire [1:0] ImmSrc,
+		    output wire [3:0] ALUControl
+		    );
 
-   always@(posedge clk)
-     begin
-	if(WE3)
-	  REG_MEM_BLOCK[WA3] <= WD3;
-     end
-
-   assign RD1 = (RA1 != 0) ? REG_MEM_BLOCK[RA1] : 0;
-   assign RD2 = (RA2 != 0) ? REG_MEM_BLOCK[RA2] : 0;
-
+   wire [1:0]			      ALUop;
+   wire				      Branch;
+   
+   Main_Decoder Main_Decoder(
+  			     .op(op),
+			     .ResultSrc(ResultSrc),
+			     .MemWrite(MemWrite),
+			     .Branch(Branch),
+  			     .ALUSrc(ALUSrc),
+			     .RegWrite(RegWrite),
+  			     .Jump(Jump),
+			     .ImmSrc(ImmSrc),
+			     .ALUop(ALUop) );
+   
+   ALU_Decoder ALU_Decoder(
+  			   .opb5(op[5]),
+			   .funct3(funct3),
+			   .funct7b5(funct7b5),
+			   .ALUOp(ALUop),
+			   .ALUControl(ALUControl) );
+   
+   //for branches beq, bne, blt, bge, bltu, bgeu
+   //make modifications later - get sign from ALU, make conditions for all branches  
+  
+   assign PCSrc = Branch & Zero | Jump;
+    
+   
 endmodule

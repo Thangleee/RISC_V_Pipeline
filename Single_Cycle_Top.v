@@ -20,22 +20,32 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-module Register_File(
-		     input wire 	clk, WE3,
-		     input wire [4:0] 	RA1,RA2,WA3,
-		     input wire [31:0] 	WD3,
-		     output wire [31:0] RD1,RD2
-		     );
+module Single_Cycle_Top(
+			input 	      clk,reset,
+			output [31:0] WriteData,DataAddr,
+			output 	      MemWrite );
 
-   reg [31:0] 				REG_MEM_BLOCK[31:0];
+   wire [31:0] 			      PC, Instr, ReadData;
 
-   always@(posedge clk)
-     begin
-	if(WE3)
-	  REG_MEM_BLOCK[WA3] <= WD3;
-     end
+   Single_Cycle_Core core_top (
+			       .clk(clk),
+			       .reset(reset),
+			       .Instr(Instr),
+			       .ReadData(ReadData),
+			       .PC(PC),
+			       .MemWrite(MemWrite),
+			       .ALUResult(DataAddr),
+			       .WriteData(WriteData) );
 
-   assign RD1 = (RA1 != 0) ? REG_MEM_BLOCK[RA1] : 0;
-   assign RD2 = (RA2 != 0) ? REG_MEM_BLOCK[RA2] : 0;
+   Instruction_Memory Instr_Memory ( 
+				     .A(PC),
+				     .RD(Instr) );
+
+   Data_Memory Data_Memory (
+			    .clk(clk), 
+			    .WE(MemWrite),
+			    .A(DataAddr), 
+			    .WD(WriteData),
+			    .RD(ReadData) );
 
 endmodule

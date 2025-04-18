@@ -20,22 +20,27 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-module Register_File(
-		     input wire 	clk, WE3,
-		     input wire [4:0] 	RA1,RA2,WA3,
-		     input wire [31:0] 	WD3,
-		     output wire [31:0] RD1,RD2
-		     );
 
-   reg [31:0] 				REG_MEM_BLOCK[31:0];
-
-   always@(posedge clk)
-     begin
-	if(WE3)
-	  REG_MEM_BLOCK[WA3] <= WD3;
-     end
-
-   assign RD1 = (RA1 != 0) ? REG_MEM_BLOCK[RA1] : 0;
-   assign RD2 = (RA2 != 0) ? REG_MEM_BLOCK[RA2] : 0;
+module Extend(
+	      input wire [31:7]  Instr,
+	      input wire [1:0] 	 ImmSrc, 
+	      output wire [31:0] ImmExt );
+   
+   reg [31:0] 			 ImmExtReg;
+   
+   always@(*)
+     case(ImmSrc)
+       //I-type
+       2'b00: ImmExtReg = {{20{Instr[31]}},Instr[31:20]};
+       //S-type(stores)
+       2'b01: ImmExtReg = {{20{Instr[31]}},Instr[31:25],Instr[11:7]};
+       //B-type(branches)
+       2'b10: ImmExtReg = {{20{Instr[31]}},Instr[7],Instr[30:25],Instr[11:8],1'b0};
+       //J-type(jal)
+       2'b11: ImmExtReg = {{12{Instr[31]}},Instr[19:12],Instr[20],Instr[30:21],1'b0};
+       default: ImmExtReg = 32'bx; //undefined
+     endcase
+   
+   assign ImmExt = ImmExtReg;
 
 endmodule

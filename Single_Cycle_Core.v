@@ -20,22 +20,57 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-module Register_File(
-		     input wire 	clk, WE3,
-		     input wire [4:0] 	RA1,RA2,WA3,
-		     input wire [31:0] 	WD3,
-		     output wire [31:0] RD1,RD2
-		     );
+module Single_Cycle_Core(
+			 input wire 	    clk,reset,
+			 input wire [31:0]  Instr,
+			 input wire [31:0]  ReadData,
+			 output wire [31:0] PC,
+			 output wire 	    MemWrite,
+			 output wire [31:0] ALUResult,WriteData
+			 );
 
-   reg [31:0] 				REG_MEM_BLOCK[31:0];
+   wire 				    ALUSrc, RegWrite, Jump, Zero, PCSrc;
+   wire [1:0] 				    ResultSrc,ImmSrc;
+   wire [3:0] 				    ALUControl;
 
-   always@(posedge clk)
-     begin
-	if(WE3)
-	  REG_MEM_BLOCK[WA3] <= WD3;
-     end
+   Control_Unit Control(
+			.op(Instr[6:0]),
+			.funct3(Instr[14:12]),
+			.funct7b5(Instr[30]),
+			.Zero(Zero),
+			.ResultSrc(ResultSrc),
+			.MemWrite(MemWrite),
+			.PCSrc(PCSrc),
+			.ALUSrc(ALUSrc),
+			.RegWrite(RegWrite),
+			.Jump(Jump),
+			.ImmSrc(ImmSrc),
+			.ALUControl(ALUControl)
+			);
 
-   assign RD1 = (RA1 != 0) ? REG_MEM_BLOCK[RA1] : 0;
-   assign RD2 = (RA2 != 0) ? REG_MEM_BLOCK[RA2] : 0;
+   Core_Datapath Datapath(
+			  .clk(clk),
+			  .reset(reset),
+			  .ResultSrc(ResultSrc),
+			  .PCSrc(PCSrc),
+			  .ALUSrc(ALUSrc),
+			  .RegWrite(RegWrite),
+			  .ImmSrc(ImmSrc),
+			  .ALUControl(ALUControl),
+			  .Instr(Instr),
+			  .ReadData(ReadData),
+			  .Zero(Zero),
+			  .PC(PC),
+			  .ALUResult(ALUResult),
+			  .WriteData(WriteData)
+			  );	
 
 endmodule
+
+
+
+
+
+
+
+
